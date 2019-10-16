@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-
 # - ids.py - #
 # - Snort IDS for offline pcap scanning
 # - Author: mcb2Eexe
 # - Last modified: 16 Oct 19
-# - Dependencies: python3, curl, snort, ET_rules dir, SC_rules dir, pcap dir
-# - ToDo: add alert output, check sig errors, check snort version, check how to use rulepacks best
+# - Dependencies: python3, pip3, pip install requests, curl, snort, rules dir, pcap dir, logs dir,
+# - ToDo: add alert output, check sig errors, check snort version, check how to use rulepacks best, bash setup script
+# - Issues: Rule packs have errors when updated (possibly ubuntu repo snort version), can't delete tar files
 
 
 import sys
@@ -30,13 +30,15 @@ def clear():
 # --- #
 
 
+# - Help menu - #
 def help(error):
     clear()
     print(error)
     print("\n Usage: $ids.py [pcap] [-h]")
     print("\n     [pcap]  Input pcap file to be scanned")
     print("\n Example: ids file.pcap\n")
-
+# --- #
+    
 
 # - Snort Function - #
 def snort(pcap):
@@ -83,8 +85,6 @@ def connection_status(url):
 
 
 # - Start - #
-
-
 while True:
     if len(sys.argv) != 2:
         help(" Invalid input! Check and try again...")
@@ -101,7 +101,6 @@ while True:
     print("   [2] Emerging Threats Rules")
     print("   [3] All Rules")
     print("   [4] Update Rules")
-    #print("Select an option: ")
     arg = input("\n Select an option: ")
     if arg == "1":
         snort(argv)
@@ -121,4 +120,4 @@ while True:
         clear()
         print("\nUnknown input! Expecting integer...\n")
         continue
-# --- #
+# - End - #
