@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # - ids.py - #
-# - Snort IDS for offline pcap scanning
+# - Snort IDS for offline pcap scanning on Ubuntu 18.04
 # - Author: mcb2Eexe
 # - Last modified: 16 Oct 19
 # - Dependencies: python3, pip3, pip install requests, curl, snort, rules dir, pcap dir, logs dir,
